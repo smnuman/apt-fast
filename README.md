@@ -42,6 +42,19 @@ You need to have [aria2c](http://aria2.sourceforge.net/) installed:
 Then, you should be ready to use it - simply run apt-fast instead of apt-get
 or aptitude any time you find yourself needing to manage packages!
 
+### Update for `axel` preferers ###
+Just add the following to redirect the Downloader to `axel` instead of `aria2c`:
+
+    # Resetting for 'axel' hack from askubuntu: [http://askubuntu.com/a/291171]
+    _DOWNLOADER='cat "${DLLIST}" | xargs -l1 axel -n "${_MAXNUM}" -a'
+
+However, this makes another implied requirement -- installing axel, which is easy:    
+
+    $ sudo apt-get install axel
+
+If you get any error of not being successfully installed, try this:    
+
+    $ sudo apt-get -f install
 
 ### Multiple mirrors ###
 It is recommended to add some local mirrors to share bandwidth with multiple
